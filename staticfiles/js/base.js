@@ -1,0 +1,1 @@
+console.log("Django + JavaScript = <3")
