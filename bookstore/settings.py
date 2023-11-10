@@ -1,12 +1,21 @@
 from pathlib import Path
 
+# Env config
+from environs import Env
+
+env = Env()
+env.read_env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-=40j=nzdns+$)t3*)hc2i!qlp+c#55(zu9p)fkz-1)(u^m+o0g"
+# Getting secret key from env
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-DEBUG = True
+# Always disable when production
+DEBUG = env.bool("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+# Only localhost and deployer
+ALLOWED_HOSTS = ["localhosts", "127.0.0.1", ".render.com"]
 
 INSTALLED_APPS = [
     # Built-in
@@ -62,14 +71,7 @@ WSGI_APPLICATION = "bookstore.wsgi.application"
 
 # Postgres config
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "db",
-        "PORT": 5432,
-    }
+    "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@db/postgres")
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
