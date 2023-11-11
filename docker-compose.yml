@@ -13,6 +13,7 @@ services:
     environment:
       - "DJANGO_SECRET_KEY=django-insecure-=40j=nzdns+$$)t3*)hc2i!qlp+c#55(zu9p)fkz-1)(u^m+o0g"
       - "DJANGO_DEBUG=True"
+      # - "DATABASE_URL=postgres://bookstore_db_ky13_user:rreWVy0JHOJCHQRwSKEWIjUxe7K7LlkN@dpg-cl7plravokcc73aoqft0-a.frankfurt-postgres.render.com/bookstore_db_ky13"
   db:
     image: postgres:16
     volumes:

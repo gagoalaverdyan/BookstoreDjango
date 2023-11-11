@@ -118,6 +118,7 @@ AUTHENTICATION_BACKENDS = {
     "allauth.account.auth_backends.AuthenticationBackend",
 }
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"
 SITE_ID = 1
 ACCOUNT_LOGOUT_REDIRECT = "home"
 ACCOUNT_SESSION_REMEMBER = None
