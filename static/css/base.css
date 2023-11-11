@@ -8,6 +8,10 @@ h1 {
 }
 
 .bookcover {
-    height: 300px;
+    height: 200px;
     width: auto;
+}
+
+a {
+    text-decoration: none;
 }
