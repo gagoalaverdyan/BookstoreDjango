@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",  # Third party, location specific
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # Third Party
@@ -38,6 +39,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Third Party
+    "allauth.account.middleware.AccountMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     # Built-in
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -46,8 +50,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # Third Party
-    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "bookstore.urls"
@@ -102,7 +104,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAHE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Custom user model
 AUTH_USER_MODEL = "accounts.CustomUser"
