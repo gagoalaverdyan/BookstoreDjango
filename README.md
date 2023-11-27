@@ -6,7 +6,8 @@ Bookstore is a simple but powerful bookstore app written in Django.
 - Custom user model with Signup/Login/Reset
 - Bootstrap for visual look
 - PostgreSQL as the database
-- Doocker as container
+- Docker as container
+- Built-in tests
 
 ## Installation
 
